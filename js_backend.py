@@ -1,6 +1,7 @@
 """
 """
 import sys
+import os
 
 from flask import Flask, request
 # from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -56,7 +57,7 @@ def add_header(response):
 # create a main() method2
 def main():
     # Hosted on localhost port 5004 - Remember to run "ngrok http 5004"
-    app.run(host="0.0.0.0", port=8008, debug=False)
+    app.run(host="0.0.0.0", port= (os.environ.get("PORT", 8008)), debug=False)
     
 
 if __name__ == '__main__':

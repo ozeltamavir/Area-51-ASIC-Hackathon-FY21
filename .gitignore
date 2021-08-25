@@ -1,3 +1,5 @@
+/node_modules
+
 # Ignore sensitive data
 env_lab.py
 

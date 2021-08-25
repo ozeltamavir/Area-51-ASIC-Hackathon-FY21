@@ -37,6 +37,22 @@ DEFAULT_HEADER = {
     'accept': "application/json"
 }
 
+# User Input
+DNAC_PUBLIC = {
+    "host": "sandboxdnac2.cisco.com",
+    "port": 443,
+    "username": "devnetuser",
+    "password": "Cisco123!",
+    "token": ""
+}
+
+DNAC_DCLOUD = {
+    "host": "198.18.133.101",
+    "port": 443,
+    "username": "admin",
+    "password": "C1sco12345",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZmJmMGZiYWEwZTFjZTAwY2I5OTU3NGQiLCJhdXRoU291cmNlIjoiaW50ZXJuYWwiLCJ0ZW5hbnROYW1lIjoiVE5UMCIsInJvbGVzIjpbIjVmYmYwZmI5YTBlMWNlMDBjYjk5NTc0YyJdLCJ0ZW5hbnRJZCI6IjVmYmYwZmI4YTBlMWNlMDBjYjk5NTc0YSIsImV4cCI6MTYyOTYxOTk1MywiaWF0IjoxNjI5NjE2MzUzLCJqdGkiOiIzZTgxOTIwNy0xMzFjLTRkNjMtYjkzMy1lYTgxNjViNTUyNzUiLCJ1c2VybmFtZSI6ImFkbWluIn0.X97_rApHt6jynhnc91bXkh6pKi_RzZ-lSb94OSj5v9SxYJUw1CsOdGuVAw2uLXYPD8NqPXHDSwbnAFTKvE58ycnahOu-8Vmktmuk3rXUYi5_cv3ubAyzQRNtbW2QQ6GZ-vCGvsD9ECoVNueiLuVQDAzJs9dI520p3VctNVslgJTqZzvq9_53bJN6L9PvwInaW-74SSA0I2RRKSUbWIKosPW4tmK_-4kekzvuFs-hwO7uwHy71mDfvVgCicjlP5MoEUFPzehWITeMHgz_I9v6HfNhh_a1-g2vdxtyRC55ZNHwOwPzXpY6UffM9Br1_5sWjvS4XKUGSNqeAy3zvfLN-w"
+}
 
 def base64Encode(message):
     """
