@@ -23,6 +23,8 @@ def getHook():
 
     # print(json.dumps(hook_info, indent=4, sort_keys=True))
 
+    print("Hellooooooo")
+
     return "Using POST Method"
 
 
