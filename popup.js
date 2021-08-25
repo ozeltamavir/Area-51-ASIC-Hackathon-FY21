@@ -9,17 +9,53 @@ window.addEventListener('load', function () {
   let switchports = document.querySelectorAll(".square");
 
   console.log(switchports)
+  var xhttp = new XMLHttpRequest();
 
+  var port = 0;
+
+
+
+  function setCurrentPort(portnumber){
+    port = portnumber;
+
+
+  }
+
+  function getCurrentPort(){
+    return port;
+  }
+
+  updatePlaceholderInfo();
 
   for (i = 0; i < switchports.length ; i++) {
       console.log(switchports[i])
       switchports[i].addEventListener('click', function(event) {
-        alert('hey');
+        // alert('hey');
+        makeOthersStayTheSame();
         button = event.target;
+        setCurrentPort(button.id)
         button.classList.add("blueSquare");
-
-        fetch("http://127.0.0.1:8008/", {method: "POST", body: JSON.stringify("Test data")});
+        updatePlaceholderInfo();
+        // xhttp.open('POST', 'http://localhost:8008/')
+        // xhttp.send()
+        // xhttp.onload = function(){
+        //   console.log("HEY")
+        // }
       })
+
+    }
+
+
+  function makeOthersStayTheSame(){
+    for (i = 0; i < switchports.length ; i++) {
+      switchports[i].classList.remove("blueSquare");
+    }
+  }
+
+  function updatePlaceholderInfo(){
+    let portinfoRef = document.querySelector("#port-info");
+    console.log("THIS IS: "+portinfoRef.innerHTML)
+    portinfoRef.innerHTML = ("This is port no. "+ getCurrentPort() )
 
   }
 });
