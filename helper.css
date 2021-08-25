@@ -1,0 +1,23 @@
+.square {
+    height: 50px;
+    width: 50px;
+    background-color: #555;
+    margin: 10px;
+
+  }
+
+
+  .blueSquare{
+    background-color: blue;
+  }
+
+.switch-ports{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgba(30, 255, 86, 0.692);
+    align-content: flex-start;
+
+}
