@@ -18,3 +18,4 @@ scp==0.13.3
 six==1.15.0
 tenacity==6.3.1
 textfsm==1.1.0
+flask==2.0.1
