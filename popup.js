@@ -2,13 +2,14 @@ window.addEventListener('load', function () {
 
   let switchports = document.querySelectorAll(".square");
 
+  let CORS_baseURL = "https://cors-anywhere.herokuapp.com/"
+
   console.log(switchports)
   var xhttp = new XMLHttpRequest();
 
   var port = 0;
-
-
-
+  
+ 
   function setCurrentPort(portnumber){
     port = portnumber;
     
@@ -30,11 +31,13 @@ window.addEventListener('load', function () {
         setCurrentPort(button.id)
         button.classList.add("blueSquare");
         updatePlaceholderInfo();
-        // xhttp.open('POST', 'http://localhost:8008/')
-        // xhttp.send()
-        // xhttp.onload = function(){
-        //   console.log("HEY")
-        // }
+        xhttp.open('POST', 'http://localhost:8008/')
+        xhttp.onload = function(){
+
+          console.log("HEY")
+        }
+        xhttp.send()
+
       })
 
     }
