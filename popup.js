@@ -51,9 +51,7 @@ window.addEventListener('load', function () {
       alert(text)  
 
 
-      s = await getCurrentTab();
-      s = await s.url
-      console.log(s)
+      console.log(await getCurrentTabURL())
       
      
       // }
@@ -63,10 +61,11 @@ window.addEventListener('load', function () {
 
 
 
-  async function getCurrentTab() {
+  async function getCurrentTabURL() {
   let queryOptions = { active: true, currentWindow: true };
   let [tab] = await chrome.tabs.query(queryOptions);
-  return tab;
+  url = await tab.url
+  return url;
 }
 
 
