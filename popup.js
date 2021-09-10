@@ -49,6 +49,11 @@ window.addEventListener('load', function () {
       let b = await httpCall('POST','https://e540-121-74-227-72.ngrok.io', 'Hi:Bye')
       text = await b.text()
       alert(text)  
+
+
+      s = await getCurrentTab();
+      s = await s.url
+      console.log(s)
       
      
       // }
@@ -57,13 +62,12 @@ window.addEventListener('load', function () {
   }
 
 
-  async function tester(){
-    let b = await httpCall('https://e540-121-74-227-72.ngrok.io', 'Hi:Bye')
-    text = await b.text()
-    alert(text)
-    return b;
 
-  }
+  async function getCurrentTab() {
+  let queryOptions = { active: true, currentWindow: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
 
 
   function makeOthersStayTheSame() {
