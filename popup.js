@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
     // use `url` here inside the callback because it's asynchronous!
   });
 
-  // console.log("HEY")
+  getURL()
   makeBoxes(24);
 
   // fetchDNAC();
@@ -67,6 +67,7 @@ window.addEventListener('load', function () {
     {
       alert('Button Clcked');
     }
+  }
 
   async function getCurrentTabURL() {
   let queryOptions = { active: true, currentWindow: true };
