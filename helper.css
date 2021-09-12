@@ -1,18 +1,17 @@
 .square {
-    height: 30px;
-    width: 22px;
-    background-color: rgb(53, 52, 52);
-    margin: 4px;
+  height: 30px;
+  width: 22px;
+  background-color: rgb(53, 52, 52);
+  margin: 4px;
+}
 
-  }
 
-
-  .blueSquare{
-    background-color: blue;
-  }
+.blueSquare{
+  background-color: blue;
+}
 
 .switch-ports{
-    height: 300px;
+    height: 200px;
     width: 790px;
     display: flex;
     flex-wrap: wrap;
@@ -132,3 +131,10 @@ input:checked + .slider .off
   top: 40px;
   width: 100px;
 } */
+
+.fakeButton {
+  height: 20px;
+  width: 100px;
+  background-color: rgb(35, 226, 35);
+  margin: 4px;
+}
