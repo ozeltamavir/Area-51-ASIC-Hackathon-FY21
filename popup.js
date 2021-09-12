@@ -68,7 +68,12 @@ window.addEventListener('load', function () {
       alert('Button Clcked');
     }
 
-  }
+  async function getCurrentTabURL() {
+  let queryOptions = { active: true, currentWindow: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  url = await tab.url
+  return url;
+}
 
 
   function makeOthersStayTheSame() {
