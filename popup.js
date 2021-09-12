@@ -1,3 +1,4 @@
+
 window.addEventListener('load', function () {
 
   // getURL()
@@ -62,6 +63,7 @@ window.addEventListener('load', function () {
         let b = await httpCall('POST','http://localhost:8008/', JSON.stringify(body))
       }
     })
+  }
 
     function saveConfigButton()
     {
@@ -133,7 +135,7 @@ async function httpCall(method, url, json_body) {
     console.log(content);
 
     return content
-  })();
+  });
 }
 
 // Get information about the switch from DNAC
