@@ -98,8 +98,11 @@ def makeApiCall(method, resource, headers, payload):
     # RESTCONF media types for REST API headers
     # headers = {'x-auth-token': TOKEN}
 
+    print(url)
+    print(headers)
+
     # this statement performs a GET on the specified url
-    response = requests.request(method, url, auth=(USER, PASS), data=payload, headers=headers, verify=False)
+    response = requests.request(method, url, data=payload, headers=headers, verify=False)
 
     # print the json that is returned
     try:

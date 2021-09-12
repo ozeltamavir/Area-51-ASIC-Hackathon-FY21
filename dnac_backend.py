@@ -36,6 +36,21 @@ def getDeviceInfo(deviceId=""):
     print(ppJSON(response))
 
 
+def getDeviceInterface(deviceId=""):
+    '''
+        Returns device info for a given device ID.
+        If no id is provided then it returns a lits of all devices in the network.
+
+        TODO: Add these features in this function:
+            - https://developer.cisco.com/docs/dna-center/#!cisco-dna-2-2-2-api-api-devices-get-device-detail
+            - 
+    '''
+    resource = "dna/intent/api/v1/interface/network-device/{d}".format(d=deviceId)
+
+    response = makeApiCall('GET', resource, headers=DEFAULT_HEADER, payload="")
+    print(ppJSON(response))
+
+
 def getDeviceBriefInfo(deviceId):
     '''
         Returns device info for a given device ID.
@@ -58,16 +73,17 @@ def getDeviceConfig(deviceId):
 
 
 
-
-
 # create a main() method2
 def main():
     """ 
         
     """
+    print("Helper Function... Does Nothing on it's own...")
+    # ## TETSING:
     # getSiteHealth()
-    deviceId = 'a62c9f20-424c-4811-87ce-3a04178ba59f'
-    getDeviceInfo(deviceId)
+    # deviceId = 'a62c9f20-424c-4811-87ce-3a04178ba59f'
+    # deviceId = '1111bf67-8429-44be-be88-47d6e8b3259a'
+    # getDeviceInfo(deviceId)
     # getDeviceConfig(deviceId)
     
     
