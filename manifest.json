@@ -6,7 +6,8 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions":["storage"],
+    "permissions":["storage", "activeTab"],
+    "host_permissions": ["http://localhost:8008/"],
     "action":{
         "default_popup" : "popup.html"
     }
