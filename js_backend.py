@@ -20,16 +20,17 @@ def getHook():
     """
     # Read URL request that comes in as a JSON file.
 
-    request_data = request.get_json()
-    interface = request_data["interface"]
+    print("Here")
+    # request_data = request.get_json()
+    # interface = request_data["interface"]
 
     # print(request_data)
 
-    print(json.dumps(interface, indent=4, sort_keys=True))
+    # print(json.dumps(interface, indent=4, sort_keys=True))
 
     # validateRestconf()
     # For Inteface ID you need to do this weird % sings, TODO: try find a way to make this simpler ....
-    setInterfaceStatus(interface["name"], "1%2F0%2F5", interface["status"])
+    setInterfaceStatus("GigabitEthernet", "1%2F0%2F6", "shut")
 
     print("Change Interface Status")
 
@@ -99,7 +100,7 @@ def setInterfaceStatus(name, id, status):
     if status == "shut":
         data = {
             "Cisco-IOS-XE-native:GigabitEthernet": {
-                "name": "1/0/5",
+                "name": "1/0/6",
                 "shutdown": [""]
             }
         }
@@ -139,7 +140,6 @@ def validateRestconf():
 
 # create a main() method2
 def main():
-    # Hosted on localhost port 5004 - Remember to run "ngrok http 5004"
     app.run(host="127.0.0.1", port= (os.environ.get("PORT", 8008)), debug=False)
     
 

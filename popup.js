@@ -10,7 +10,10 @@ window.addEventListener('load', function () {
     // use `url` here inside the callback because it's asynchronous!
   });
 
-  getURL()
+  tab_url = getCurrentTabURL()
+  // switch_name = 
+
+
   makeBoxes(24);
 
   // fetchDNAC();
@@ -43,7 +46,19 @@ window.addEventListener('load', function () {
       // alert()
       if (button.id === '0') {
         // They clicked on save 
-        alert('Button Clcked');
+        // alert('Port Shutdown');
+
+        var body = {
+          "ip" : "10.0.0.20",
+          "interface" : {
+            "name" : "GigabitEthernet",
+            "id" : "1/0/5",
+            "status" : "shut"
+          }
+        }
+        let b = await httpCall('POST','http://localhost:8008/', JSON.stringify(body))
+        text = await b.text()
+        alert(text)  
       }
       else {
         makeOthersStayTheSame();
@@ -52,23 +67,17 @@ window.addEventListener('load', function () {
         button.classList.add("blueSquare");
         updatePlaceholderInfo();
 
-        var body = {
-            "ip" : "10.0.0.20",
-            "interface" : {
-              "name" : "GigabitEthernet",
-              "id" : "1/0/5",
-              "status" : "shut"
-            }
-        }
-        let b = await httpCall('POST','http://localhost:8008/', JSON.stringify(body))
+        // var body = {
+        //     "ip" : "10.0.0.20",
+        //     "interface" : {
+        //       "name" : "GigabitEthernet",
+        //       "id" : "1/0/5",
+        //       "status" : "shut"
+        //     }
+        // }
+        // let b = await httpCall('POST','http://localhost:8008/', JSON.stringify(body))
       }
     })
-  }
-
-    function saveConfigButton()
-    {
-      alert('Button Clcked');
-    }
   }
 
   async function getCurrentTabURL() {
@@ -87,7 +96,6 @@ window.addEventListener('load', function () {
 
   function updatePlaceholderInfo() {
     let portinfoRef = document.querySelector("#port-info");
-    // console.log("THIS IS: " + portinfoRef.innerHTML)
     portinfoRef.innerHTML = ("This is port no. " + getCurrentPort())
 
   }
@@ -100,9 +108,9 @@ function makeBoxes(Howmany) {
   for (var i = 0; i < Howmany; i++) {
     console.log("Port " + i)
     // document.getElementById("switch-ports").insertAdjacentHTML("afterend", square)
+    // For every 6th port make a spacing for nicer visualisation
     if (i % 7 === 6) {
       id = i + 1
-      console.log("HEREEEE");
       square = "<div id='" + id + "' class='square' style='margin-left:15px;'></div>"
       document.getElementById("switch-ports").innerHTML += square;
     }
@@ -119,24 +127,22 @@ function getURL() {
 }
 
 
-async function httpCall(method, url, json_body) {
+async function httpCall(method, ipaddress, json_body) {
 
-  (async () => {
-    const rawResponse = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: json_body
-    });
-    const content = await rawResponse.json();
-  
-    console.log(content);
+  const response =  fetch(ipaddress, {
+    method: method,
+    mode: 'no-cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: json_body
 
-    return content
-  });
+  } );
+
+  return await response;
 }
+
 
 // Get information about the switch from DNAC
 async function fetchDNAC(){
