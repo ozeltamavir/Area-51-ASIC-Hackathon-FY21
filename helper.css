@@ -1,23 +1,140 @@
 .square {
-    height: 50px;
-    width: 50px;
-    background-color: #555;
-    margin: 10px;
+  height: 30px;
+  width: 22px;
+  background-color: rgb(53, 52, 52);
+  margin: 4px;
+}
 
-  }
 
-
-  .blueSquare{
-    background-color: blue;
-  }
+.blueSquare{
+  background-color: blue;
+}
 
 .switch-ports{
-    height: 300px;
-    width: 500px;
+    height: 200px;
+    width: 790px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: rgba(30, 255, 86, 0.692);
+    background-color: rgba(165, 170, 165, 0.692);
     align-content: flex-start;
 
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;}
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button4 {border-radius: 12px;}
+
+.plus {
+  width: 30px;
+  height: 22px;
+  background: orange;
+}
+
+/* .plus::after{
+  background: red;
+  content: "";
+  height: 20px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 100px;
+} */
+
+.fakeButton {
+  height: 20px;
+  width: 100px;
+  background-color: rgb(35, 226, 35);
+  margin: 4px;
 }

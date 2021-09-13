@@ -6,8 +6,8 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions":["storage", "activeTab"],
-    "host_permissions": ["http://localhost:8008/"],
+    "permissions":["storage"],
+    "host_permissions": ["http://localhost:8008/", "https://e540-121-74-227-72.ngrok.io/", "https://10.0.0.20/", "https://198.18.133.101/"],
     "action":{
         "default_popup" : "popup.html"
     }
